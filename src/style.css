@@ -1,3 +1,29 @@
 * {
-  color: red;
+  box-sizing: border-box;
+  font-family: 'Montserrat', 'Roboto', Arial, san-serif;
+}
+
+body {
+  margin: 0;
+  width: 80%;
+  margin: auto;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  height: 40px;
+  font-size: 1.4em;
+  font-weight: bold;
+  background-color: #338df4;
+}
+
+.section-title:hover {
+  cursor: pointer;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
 }
