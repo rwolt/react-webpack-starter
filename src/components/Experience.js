@@ -8,7 +8,6 @@ class Experience extends Component {
 
     this.state = {
       experienceHistory: [<ExperienceForm key={uniqid()} />],
-      collapsed: true,
     };
 
     this.addSection = this.addSection.bind(this);
@@ -24,15 +23,12 @@ class Experience extends Component {
 
   render() {
     return (
-      <div
-        id="experience"
-        className="container"
-        onClick={() => this.setState({ collapsed: !this.state.collapsed })}
-      >
+      <div id="experience" className="container">
         <div className="section-title">Experience</div>
-        {!this.state.collapsed
-          ? this.state.experienceHistory.map((item) => item)
-          : ''}
+        {this.state.experienceHistory.map((item) => item)}
+        <button className="addSectionButton" onClick={this.addSection}>
+          Add Section
+        </button>
       </div>
     );
   }

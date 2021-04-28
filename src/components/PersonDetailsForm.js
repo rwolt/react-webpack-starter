@@ -1,17 +1,52 @@
 import React from 'react';
 
-function PersonDetailsForm() {
+function PersonDetailsForm(props) {
+  if (props.editable) {
+    return (
+      <form
+        className="personal-details"
+        onChange={(e) => props.handleChange(e)}
+      >
+        <label htmlFor="profile-name">Name:</label>
+        <input
+          type="text"
+          id="profile-name"
+          name="profileName"
+          value={props.name}
+        ></input>
+        <label htmlFor="profile-email">Email:</label>
+        <input
+          type="email"
+          id="profile-email"
+          name="profileEmail"
+          value={props.email}
+        ></input>
+        <label htmlFor="profile-phone">Phone:</label>
+        <input
+          type="tel"
+          id="profile-phone"
+          name="profilePhone"
+          value={props.phone}
+        ></input>
+      </form>
+    );
+  }
+
   return (
-    <form id="personal-details">
-      <label htmlFor="profile-picture">Upload Profile Picture:</label>
-      <input type="file" id="profile-picture" name="profile-picture"></input>
+    <div className="personal-details">
       <label htmlFor="profile-name">Name:</label>
-      <input type="text" id="profile-name" name="profile-name"></input>
+      <p id="profile-name" name="profile-name">
+        {props.name}
+      </p>
       <label htmlFor="profile-email">Email:</label>
-      <input type="email" id="profile-email" name="profile-email"></input>
+      <p id="profile-email" name="profile-email">
+        {props.email}
+      </p>
       <label htmlFor="profile-phone">Phone:</label>
-      <input type="tel" id="profile-phone" name="profile-phone"></input>
-    </form>
+      <p id="profile-phone" name="profile-phone">
+        {props.phone}
+      </p>
+    </div>
   );
 }
 

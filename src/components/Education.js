@@ -9,34 +9,28 @@ class Education extends Component {
     super(props);
 
     this.state = {
-      educationHistory: [<EducationForm key={uniqid()} />],
-      collapsed: true,
+      editable: true,
+      eduArray: [<EducationForm key={uniqid()} />],
     };
 
     this.addSection = this.addSection.bind(this);
   }
 
   addSection() {
-    let eduForm = <EducationForm key={uniqid()} />;
     this.setState({
-      educationHistory: this.state.educationHistory.concat(eduForm),
+      eduArray: this.state.eduArray.concat(<EducationForm key={uniqid()} />),
     });
   }
 
   render() {
     return (
       <div id="education" className="container">
-        <div
-          className="section-title"
-          onClick={() => {
-            this.setState({ collapsed: !this.state.collapsed });
-          }}
-        >
-          Education History
-        </div>
-        {!this.state.collapsed
-          ? this.state.educationHistory.map((item) => item)
-          : ''}
+        <div className="section-title">Education History</div>
+        {this.state.eduArray.map((item) => item)}
+
+        <button className="addSectionButton" onClick={this.addSection}>
+          Add Section
+        </button>
       </div>
     );
   }
